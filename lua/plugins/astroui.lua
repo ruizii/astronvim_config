@@ -12,7 +12,7 @@ return {
     colorscheme = "astrodark",
 
     highlights = {
-      init = {
+      astrodark = {
         StatusLine = {
           bg = "#1e222a",
         },
