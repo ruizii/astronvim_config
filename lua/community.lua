@@ -14,7 +14,6 @@ return {
   { import = "astrocommunity.pack.bash" },
   { import = "astrocommunity.pack.typescript" },
   { import = "astrocommunity.pack.html-css" },
-  { import = "astrocommunity.diagnostics.lsp_lines-nvim" },
   { import = "astrocommunity.scrolling.nvim-scrollbar" },
   { import = "astrocommunity.search.nvim-hlslens" },
 }
