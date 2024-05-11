@@ -229,7 +229,7 @@ return {
     },
     opts = {
       ---@type lc.lang
-      lang = "c",
+      lang = "cpp",
     },
   },
 

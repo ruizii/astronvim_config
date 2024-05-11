@@ -19,6 +19,12 @@ return {
         TabLineFill = {
           bg = "#1e222a",
         },
+        FloatBorder = {
+          bg = "#1A1D23",
+        },
+        NormalFloat = {
+          bg = "#1A1D23",
+        },
       },
     },
 
