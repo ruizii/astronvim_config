@@ -51,6 +51,8 @@ return {
       TypeParameter = "  ",
     }
 
+    vim.api.nvim_set_hl(0, "CmpItemKindFile", { link = "Character" })
+
     opts.sources = cmp.config.sources {
       { name = "nvim_lsp", priority = 1000 },
       { name = "luasnip", priority = 750 },

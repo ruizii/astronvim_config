@@ -14,10 +14,10 @@ return {
     highlights = {
       astrodark = {
         StatusLine = {
-          bg = "#1e222a",
+          -- bg = "#1e222a",
         },
         TabLineFill = {
-          bg = "#1e222a",
+          -- bg = "#1e222a",
         },
         FloatBorder = {
           bg = "#1A1D23",

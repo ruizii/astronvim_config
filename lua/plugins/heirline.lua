@@ -5,7 +5,7 @@ return {
     opts = {
       -- add new user interface icon
       icons = {
-        VimIcon = "",
+        VimIcon = "",
         ScrollText = "",
         GitBranch = "",
         GitAdd = "",
@@ -18,7 +18,7 @@ return {
         separators = {
           left = { "", "" }, -- separator for the left side of the statusline
           right = { " ", "" }, -- separator for the right side of the statusline
-          tab = { "", "" },
+          -- tab = { "", "" },
         },
         -- add new colors that can be used by heirline
         colors = function(hl)

@@ -265,6 +265,21 @@ return {
   },
 
   {
+    "xiyaowong/transparent.nvim",
+    require("transparent").setup {
+      extra_groups = {
+        "NormalFloat",
+        "TabLineFill",
+        "Comment",
+        "NormalNC",
+        "TabLine",
+        "TabLineSel",
+        "FloatBorder",
+      },
+    },
+  },
+
+  {
     "windwp/nvim-autopairs",
     config = function(plugin, opts)
       require "astronvim.plugins.configs.nvim-autopairs"(plugin, opts) -- include the default astronvim config that calls the setup call

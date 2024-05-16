@@ -16,4 +16,5 @@ return {
   { import = "astrocommunity.pack.html-css" },
   { import = "astrocommunity.scrolling.nvim-scrollbar" },
   { import = "astrocommunity.search.nvim-hlslens" },
+  { import = "astrocommunity.color.transparent-nvim" },
 }
