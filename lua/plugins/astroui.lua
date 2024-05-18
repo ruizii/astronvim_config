@@ -25,6 +25,9 @@ return {
         NormalFloat = {
           bg = "#1A1D23",
         },
+        MatchParen = {
+          bg = "#5c6370",
+        },
       },
     },
 

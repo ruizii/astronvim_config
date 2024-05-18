@@ -252,6 +252,7 @@ return {
 
   -- You can disable default plugins as follows:
   { "max397574/better-escape.nvim", enabled = false },
+  { "norcalli/nvim-colorizer.lua", enabled = false },
 
   -- You can also easily customize additional setup of plugins that is outside of the plugin's setup call
   {
@@ -261,6 +262,39 @@ return {
       -- add more custom luasnip configuration such as filetype extend or custom snippets
       local luasnip = require "luasnip"
       luasnip.filetype_extend("javascript", { "javascriptreact" })
+    end,
+  },
+  {
+    "lukas-reineke/indent-blankline.nvim",
+    config = function()
+      local highlight = {
+        "RainbowYellow",
+        "RainbowBlue",
+        "RainbowGreen",
+        "RainbowViolet",
+        "RainbowOrange",
+        "RainbowRed",
+        "RainbowCyan",
+      }
+      local hooks = require "ibl.hooks"
+      hooks.register(hooks.type.HIGHLIGHT_SETUP, function()
+        vim.api.nvim_set_hl(0, "RainbowYellow", { fg = "#E5C07B" })
+        vim.api.nvim_set_hl(0, "RainbowBlue", { fg = "#61AFEF" })
+        vim.api.nvim_set_hl(0, "RainbowOrange", { fg = "#D19A66" })
+        vim.api.nvim_set_hl(0, "RainbowCyan", { fg = "#56B6C2" })
+        vim.api.nvim_set_hl(0, "RainbowRed", { fg = "#E06C75" })
+        vim.api.nvim_set_hl(0, "RainbowGreen", { fg = "#98C379" })
+        vim.api.nvim_set_hl(0, "RainbowViolet", { fg = "#C678DD" })
+      end)
+      vim.g.rainbow_delimiters = { highlight = highlight }
+
+      require("ibl").setup {
+        scope = {
+          show_start = false,
+          show_end = false,
+        },
+      }
+      hooks.register(hooks.type.SCOPE_HIGHLIGHT, hooks.builtin.scope_highlight_from_extmark)
     end,
   },
 
@@ -277,6 +311,21 @@ return {
         "FloatBorder",
       },
     },
+  },
+
+  {
+    "lewis6991/gitsigns.nvim",
+    config = function()
+      require("gitsigns").setup {
+        signcolumn = false, -- Toggle with `:Gitsigns toggle_signs`
+        numhl = true, -- Toggle with `:Gitsigns toggle_numhl`
+        linehl = false, -- Toggle with `:Gitsigns toggle_linehl`
+        word_diff = false, -- Toggle with `:Gitsigns toggle_word_diff`
+        auto_attach = true,
+        attach_to_untracked = false,
+        current_line_blame = false, -- Toggle with `:Gitsigns toggle_current_line_blame`
+      }
+    end,
   },
 
   {
@@ -306,6 +355,17 @@ return {
         -- disable for .vim files, but it work for another filetypes
         Rule("a", "a", "-vim")
       )
+    end,
+  },
+  {
+    "brenoprata10/nvim-highlight-colors",
+    config = function()
+      require("nvim-highlight-colors").setup {
+        ---Render style
+        ---@usage 'background'|'foreground'|'virtual'
+        render = "virtual",
+        enable_tailwind = true,
+      }
     end,
   },
 }
