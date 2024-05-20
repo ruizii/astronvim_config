@@ -3,39 +3,35 @@
 
 ---@type LazySpec
 return {
-  -- == Examples of Adding Plugins ==
-  --
-  -- "andweeb/presence.nvim",
-  -- {
-  --   "ray-x/lsp_signature.nvim",
-  --   event = "BufRead",
-  --   config = function() require("lsp_signature").setup() end,
-  -- },
-  -- == Examples of Overriding Plugins ==
-  -- customize alpha options
   {
     "goolord/alpha-nvim",
     opts = function(_, opts)
       -- customize the dashboard header
       opts.section.header.val = {
-        " █████  ███████ ████████ ██████   ██████",
-        "██   ██ ██         ██    ██   ██ ██    ██",
-        "███████ ███████    ██    ██████  ██    ██",
-        "██   ██      ██    ██    ██   ██ ██    ██",
-        "██   ██ ███████    ██    ██   ██  ██████",
-        " ",
-        "    ███    ██ ██    ██ ██ ███    ███",
-        "    ████   ██ ██    ██ ██ ████  ████",
-        "    ██ ██  ██ ██    ██ ██ ██ ████ ██",
-        "    ██  ██ ██  ██  ██  ██ ██  ██  ██",
-        "    ██   ████   ████   ██ ██      ██",
+        [[                                    ██████                                    ]],
+        [[                                ████▒▒▒▒▒▒████                                ]],
+        [[                              ██▒▒▒▒▒▒▒▒▒▒▒▒▒▒██                              ]],
+        [[                            ██▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒██                            ]],
+        [[                          ██▒▒▒▒▒▒▒▒    ▒▒▒▒▒▒▒▒                              ]],
+        [[                          ██▒▒▒▒▒▒  ▒▒▓▓▒▒▒▒▒▒  ▓▓▓▓                          ]],
+        [[                          ██▒▒▒▒▒▒  ▒▒▓▓▒▒▒▒▒▒  ▒▒▓▓                          ]],
+        [[                        ██▒▒▒▒▒▒▒▒▒▒    ▒▒▒▒▒▒▒▒    ██                        ]],
+        [[                        ██▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒██                        ]],
+        [[                        ██▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒██                        ]],
+        [[                        ██▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒██                        ]],
+        [[                        ██▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒██                        ]],
+        [[                        ██▒▒██▒▒▒▒▒▒██▒▒▒▒▒▒▒▒██▒▒▒▒██                        ]],
+        [[                        ████  ██▒▒██  ██▒▒▒▒██  ██▒▒██                        ]],
+        [[                        ██      ██      ████      ████                        ]],
       }
+
       return opts
     end,
   },
+
   {
     "CRAG666/code_runner.nvim",
-    lazy = false,
+    cmd = "RunCode",
     config = function()
       require("code_runner").setup {
         mode = "toggleterm",
@@ -61,161 +57,12 @@ return {
 
   {
     "iruzo/matrix-nvim",
-    lazy = false,
     config = function() vim.g.matrix_disable_background = true end,
   },
 
   {
-    "petertriho/nvim-scrollbar",
-    require("scrollbar").setup {
-      show = true,
-      show_in_active_only = false,
-      set_highlights = true,
-      folds = 1000, -- handle folds, set to number to disable folds if no. of lines in buffer exceeds this
-      max_lines = false, -- disables if no. of lines in buffer exceeds this
-      hide_if_all_visible = false, -- Hides everything if all lines are visible
-      throttle_ms = 100,
-      handle = {
-        text = " ",
-        blend = 30, -- Integer between 0 and 100. 0 for fully opaque and 100 to full transparent. Defaults to 30.
-        color = "#60606f",
-        color_nr = nil, -- cterm
-        highlight = "CursorColumn",
-        hide_if_all_visible = true, -- Hides handle if all lines are visible
-      },
-      marks = {
-        Cursor = {
-          text = "-",
-          priority = 0,
-          gui = nil,
-          color = nil,
-          cterm = nil,
-          color_nr = nil, -- cterm
-          highlight = "Normal",
-        },
-        Search = {
-          text = { "-", "=" },
-          priority = 1,
-          gui = nil,
-          color = "#FFEA00",
-          cterm = nil,
-          color_nr = nil, -- cterm
-          highlight = "Search",
-        },
-        Error = {
-          text = { "-", "=" },
-          priority = 2,
-          gui = nil,
-          color = nil,
-          cterm = nil,
-          color_nr = nil, -- cterm
-          highlight = "DiagnosticVirtualTextError",
-        },
-        Warn = {
-          text = { "-", "=" },
-          priority = 3,
-          gui = nil,
-          color = nil,
-          cterm = nil,
-          color_nr = nil, -- cterm
-          highlight = "DiagnosticVirtualTextWarn",
-        },
-        Info = {
-          text = { "-", "=" },
-          priority = 4,
-          gui = nil,
-          color = nil,
-          cterm = nil,
-          color_nr = nil, -- cterm
-          highlight = "DiagnosticVirtualTextInfo",
-        },
-        Hint = {
-          text = { "-", "=" },
-          priority = 5,
-          gui = nil,
-          color = nil,
-          cterm = nil,
-          color_nr = nil, -- cterm
-          highlight = "DiagnosticVirtualTextHint",
-        },
-        Misc = {
-          text = { "-", "=" },
-          priority = 6,
-          gui = nil,
-          color = nil,
-          cterm = nil,
-          color_nr = nil, -- cterm
-          highlight = "Normal",
-        },
-        GitAdd = {
-          text = "┆",
-          priority = 7,
-          gui = nil,
-          color = nil,
-          cterm = nil,
-          color_nr = nil, -- cterm
-          highlight = "GitSignsAdd",
-        },
-        GitChange = {
-          text = "┆",
-          priority = 7,
-          gui = nil,
-          color = nil,
-          cterm = nil,
-          color_nr = nil, -- cterm
-          highlight = "GitSignsChange",
-        },
-        GitDelete = {
-          text = "▁",
-          priority = 7,
-          gui = nil,
-          color = nil,
-          cterm = nil,
-          color_nr = nil, -- cterm
-          highlight = "GitSignsDelete",
-        },
-      },
-      excluded_buftypes = {
-        "terminal",
-      },
-      excluded_filetypes = {
-        "cmp_docs",
-        "cmp_menu",
-        "noice",
-        "prompt",
-        "TelescopePrompt",
-      },
-      autocmd = {
-        render = {
-          "BufWinEnter",
-          "TabEnter",
-          "TermEnter",
-          "WinEnter",
-          "CmdwinLeave",
-          "TextChanged",
-          "VimResized",
-          "WinScrolled",
-        },
-        clear = {
-          "BufWinLeave",
-          "TabLeave",
-          "TermLeave",
-          "WinLeave",
-        },
-      },
-      handlers = {
-        cursor = true,
-        diagnostic = true,
-        gitsigns = false, -- Requires gitsigns
-        handle = true,
-        search = false, -- Requires hlslens
-        ale = false, -- Requires ALE
-      },
-    },
-  },
-
-  {
     "kawre/leetcode.nvim",
+    lazy = "leetcode.nvim" ~= vim.fn.argv()[1],
     build = ":TSUpdate html",
     dependencies = {
       "nvim-telescope/telescope.nvim",
@@ -230,18 +77,12 @@ return {
     opts = {
       ---@type lc.lang
       lang = "cpp",
+      arg = "leetcode.nvim",
     },
   },
 
   {
-    "catppuccin/nvim",
-    name = "catppuccin",
-    priority = 1000,
-  },
-
-  {
     "navarasu/onedark.nvim",
-    lazy = false,
     config = function()
       require("onedark").setup {
         style = "darker",
@@ -250,9 +91,28 @@ return {
     end,
   },
 
+  {
+    "folke/which-key.nvim",
+    event = "VeryLazy",
+    init = function()
+      vim.o.timeout = true
+      vim.o.timeoutlen = 300
+    end,
+    opts = {
+      -- your configuration comes here
+      -- or leave it empty to use the default settings
+      -- refer to the configuration section below
+    },
+  },
+
   -- You can disable default plugins as follows:
   { "max397574/better-escape.nvim", enabled = false },
   { "norcalli/nvim-colorizer.lua", enabled = false },
+  { "mrjones2014/smart-splits.nvim", enabled = false },
+  { "williamboman/mason-nvim-dap.nvim", enabled = false },
+  { "mfussenegger/nvim-dap", enabled = false },
+  { "rcarriga/nvim-dap-ui", enabled = false },
+  { "rcarriga/cmp-dap", enabled = false },
 
   -- You can also easily customize additional setup of plugins that is outside of the plugin's setup call
   {
@@ -300,63 +160,39 @@ return {
 
   {
     "xiyaowong/transparent.nvim",
-    require("transparent").setup {
-      extra_groups = {
-        "NormalFloat",
-        "TabLineFill",
-        "Comment",
-        "NormalNC",
-        "TabLine",
-        "TabLineSel",
-        "FloatBorder",
+    lazy = false,
+    config = function()
+      local transparent = require "transparent"
+      transparent.setup {
+        extra_groups = {
+          "NvimTreeNormal",
+          "NormalFloat",
+          "TabLineFill",
+          "Comment",
+          "NormalNC",
+          "TabLine",
+          "TabLineSel",
+          "FloatBorder",
+        },
+      }
+      transparent.clear_prefix "BufferLine"
+      transparent.clear_prefix "NeoTree"
+      transparent.clear_prefix "lualine"
+    end,
+    dependencies = {
+      {
+        "AstroNvim/astrocore",
+        opts = {
+          mappings = {
+            n = {
+              ["<Leader>uT"] = { "<Cmd>TransparentToggle<CR>", desc = "Toggle transparency" },
+            },
+          },
+        },
       },
     },
   },
 
-  {
-    "lewis6991/gitsigns.nvim",
-    config = function()
-      require("gitsigns").setup {
-        signcolumn = false, -- Toggle with `:Gitsigns toggle_signs`
-        numhl = true, -- Toggle with `:Gitsigns toggle_numhl`
-        linehl = false, -- Toggle with `:Gitsigns toggle_linehl`
-        word_diff = false, -- Toggle with `:Gitsigns toggle_word_diff`
-        auto_attach = true,
-        attach_to_untracked = false,
-        current_line_blame = false, -- Toggle with `:Gitsigns toggle_current_line_blame`
-      }
-    end,
-  },
-
-  {
-    "windwp/nvim-autopairs",
-    config = function(plugin, opts)
-      require "astronvim.plugins.configs.nvim-autopairs"(plugin, opts) -- include the default astronvim config that calls the setup call
-      -- add more custom autopairs configuration such as custom rules
-      local npairs = require "nvim-autopairs"
-      local Rule = require "nvim-autopairs.rule"
-      local cond = require "nvim-autopairs.conds"
-      npairs.add_rules(
-        {
-          Rule("$", "$", { "tex", "latex" })
-            -- don't add a pair if the next character is %
-            :with_pair(cond.not_after_regex "%%")
-            -- don't add a pair if  the previous character is xxx
-            :with_pair(
-              cond.not_before_regex("xxx", 3)
-            )
-            -- don't move right when repeat character
-            :with_move(cond.none())
-            -- don't delete if the next character is xx
-            :with_del(cond.not_after_regex "xx")
-            -- disable adding a newline when you press <cr>
-            :with_cr(cond.none()),
-        },
-        -- disable for .vim files, but it work for another filetypes
-        Rule("a", "a", "-vim")
-      )
-    end,
-  },
   {
     "brenoprata10/nvim-highlight-colors",
     config = function()
@@ -367,5 +203,19 @@ return {
         enable_tailwind = true,
       }
     end,
+  },
+
+  {
+    "HiPhish/rainbow-delimiters.nvim",
+    dependencies = "nvim-treesitter/nvim-treesitter",
+    event = "User AstroFile",
+    main = "rainbow-delimiters.setup",
+  },
+
+  {
+    "vuki656/package-info.nvim",
+    dependencies = { "MunifTanjim/nui.nvim" },
+    opts = {},
+    event = "BufRead package.json",
   },
 }

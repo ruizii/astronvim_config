@@ -35,7 +35,6 @@ return {
         tabstop = 4,
         expandtab = true,
         updatetime = 750,
-        timeoutlen = 400,
       },
       g = { -- vim.g.<key>
         -- configure global vim variables (vim.g)

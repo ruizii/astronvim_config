@@ -14,6 +14,9 @@ return {
       codelens = true, -- enable/disable codelens refresh on start
       inlay_hints = false, -- enable/disable inlay hints on start
       semantic_tokens = true, -- enable/disable semantic token highlighting
+      autocmds = {
+        eslint_fix_on_save = false,
+      },
     },
     -- customize lsp formatting options
     formatting = {
@@ -43,7 +46,6 @@ return {
     -- customize language server configuration options passed to `lspconfig`
     ---@diagnostic disable: missing-fields
     config = {
-      -- clangd = { capabilities = { offsetEncoding = "utf-8" } },
       pyright = {
         settings = {
           python = {
@@ -53,6 +55,14 @@ return {
               },
             },
           },
+        },
+      },
+
+      lua_ls = { settings = { Lua = { hint = { enable = true, arrayIndex = "Disable" } } } },
+
+      clangd = {
+        capabilities = {
+          offsetEncoding = "utf-8",
         },
       },
     },

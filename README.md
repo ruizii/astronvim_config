@@ -1,16 +1,7 @@
-# AstroNvim v4 Template
+# AstroNvim v4: asdf config
 
 ## 🛠️ Installation
-
-#### Clone the repository
 
 ```shell
 git clone https://github.com/ruizii/astronvim_config ~/.config/nvim
 ```
-
-#### Start Neovim
-
-```shell
-nvim
-```
-
