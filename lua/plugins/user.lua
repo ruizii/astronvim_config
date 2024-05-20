@@ -91,20 +91,6 @@ return {
     end,
   },
 
-  {
-    "folke/which-key.nvim",
-    event = "VeryLazy",
-    init = function()
-      vim.o.timeout = true
-      vim.o.timeoutlen = 300
-    end,
-    opts = {
-      -- your configuration comes here
-      -- or leave it empty to use the default settings
-      -- refer to the configuration section below
-    },
-  },
-
   -- You can disable default plugins as follows:
   { "max397574/better-escape.nvim", enabled = false },
   { "norcalli/nvim-colorizer.lua", enabled = false },
@@ -195,6 +181,7 @@ return {
 
   {
     "brenoprata10/nvim-highlight-colors",
+    event = { "BufReadPost", "BufNewFile" },
     config = function()
       require("nvim-highlight-colors").setup {
         ---Render style

@@ -27,6 +27,11 @@ return {
     options = {
       opt = { -- vim.opt.<key>
         relativenumber = true, -- sets vim.opt.relativenumber
+        cursorline = false,
+        swapfile = false,
+        undofile = true,
+        cmdheight = 0,
+        showcmd = true,
         number = true, -- sets vim.opt.number
         spell = false, -- sets vim.opt.spell
         signcolumn = "auto", -- sets vim.opt.signcolumn to auto
@@ -34,7 +39,8 @@ return {
         shiftwidth = 4,
         tabstop = 4,
         expandtab = true,
-        updatetime = 750,
+        updatetime = 500,
+        timeoutlen = 400,
       },
       g = { -- vim.g.<key>
         -- configure global vim variables (vim.g)

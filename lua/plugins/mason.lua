@@ -5,13 +5,15 @@ return {
   -- use mason-lspconfig to configure LSP installations
   {
     "williamboman/mason.nvim",
-    config = function()
+    cmd = "Mason",
+    build = "MasonUpdate",
+    opts = {
       require("mason").setup {
         ui = {
           border = "single",
         },
-      }
-    end,
+      },
+    },
   },
 
   {

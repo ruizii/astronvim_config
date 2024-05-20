@@ -15,15 +15,30 @@ require("lazy").setup({
 } --[[@as LazySpec]], {
   -- Configure any other `lazy.nvim` configuration options here
   install = { colorscheme = { "astrodark", "habamax" } },
-  ui = { backdrop = 100, border = "single" },
+  ui = {
+    backdrop = 100,
+    border = "single",
+    wrap = true,
+  },
   performance = {
+    cache = {
+      path = vim.fn.stdpath "cache" .. "/lazy/cache",
+      enabled = true,
+      disable_events = { "VimEnter", "BufReadPre" },
+    },
+    reset_packpath = true,
     rtp = {
       -- disable some rtp plugins, add more to your liking
       disabled_plugins = {
         "gzip",
+        "matchit",
+        "matchparen",
         "netrwPlugin",
+        "spellfile",
+        "shada",
         "tarPlugin",
         "tohtml",
+        "tutor",
         "zipPlugin",
       },
     },
